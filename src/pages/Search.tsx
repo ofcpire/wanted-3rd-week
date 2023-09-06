@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function SearchPage() {
-  return <></>;
+  return <>검색 페이지!</>;
 }
