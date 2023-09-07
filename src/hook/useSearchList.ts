@@ -14,6 +14,7 @@ export default function useSearchList() {
   };
 
   useEffect(() => {
+    console.log(query.length);
     if (findCache(query)) setReco(findCache(query).data);
     else if (query.length > 0 && !testWord.test(query)) {
       if (getTimeout) clearTimeout(getTimeout);
@@ -28,7 +29,10 @@ export default function useSearchList() {
             alert('api error!');
           });
       }, debounceTime);
-    } else if (query.length <= 0) setReco([]);
+    } else {
+      if (getTimeout) clearTimeout(getTimeout);
+      setReco([]);
+    }
   }, [query]);
 
   const [select, setSelect] = useState(-1);
