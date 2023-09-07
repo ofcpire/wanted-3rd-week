@@ -1,5 +1,5 @@
 import React from 'react';
-import { SearchRecoItemStyle } from '../styles/searchStyle';
+import { SearchRecoItemStyle } from '../../styles/searchStyle';
 
 interface RecoItemProps {
   sickNm: string;

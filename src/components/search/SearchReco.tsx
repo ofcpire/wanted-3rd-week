@@ -1,6 +1,6 @@
 import React from 'react';
 import { SearchRecoListStyle } from '../../styles/searchStyle';
-import SearchRecoItem from '../SearchRecoItem';
+import SearchRecoItem from './SearchRecoItem';
 
 interface SearchRecoProps {
   reco: sickType[];
