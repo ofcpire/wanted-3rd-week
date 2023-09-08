@@ -5,7 +5,7 @@ const SearchForm = styled.form`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 25px;
+  padding: 0px 10px 0px 25px;
   border-radius: 25px;
   width: 300px;
   height: 50px;
@@ -33,21 +33,26 @@ const SearchRecoListStyle = styled.div`
   padding: 10px;
   background-color: white;
   position: absolute;
-  transform: translateY(50px);
+  transform: translateY(55px);
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
   .list-header {
+    width: 100%;
     color: grey;
     font-size: small;
-    padding: 10px;
+    padding: 5px 10px 10px;
+    border-bottom: 1px solid grey;
+    margin-bottom: 10px;
   }
 `;
 
-const SearchRecoItemStyle = styled.div<SearchRecoItemProps>`
+const SearchRecoItemStyle = styled.div<SearchRecoItemStyleProps>`
   background-color: ${props => (props.$select === props.$idx ? 'lightblue' : 'white')};
   color: ${props => (props.$select === props.$idx ? 'white' : 'black')};
   padding: 5px;
+  cursor: pointer;
 `;
 
-interface SearchRecoItemProps {
+interface SearchRecoItemStyleProps {
   $select: number;
   $idx: number;
 }
