@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { SearchForm } from '../../styles/searchStyle';
-import { Input, Button } from '../../styles/global';
+import { Input, Button } from '../../styles/common';
 import { SearchContext } from '../../context/SearchContext';
+import { BiSearchAlt2 } from 'react-icons/bi';
 
 interface SearchInputProps {
   makeListVisible: () => void;
@@ -28,7 +29,9 @@ export default function SearchInput({ makeListVisible, makeListHidden }: SearchI
         onChange={setQueryValue}
         placeholder="질환명을 입력해 주세요."
       ></Input>
-      <Button>🔍︎</Button>
+      <Button>
+        <BiSearchAlt2 />
+      </Button>
     </SearchForm>
   );
 }
