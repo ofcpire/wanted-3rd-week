@@ -9,14 +9,15 @@ export default function useSearchList() {
   const [query, setQuery] = useState('');
   const [reco, setReco] = useState<sickType[]>([]);
   const searchInputRef = useRef<HTMLInputElement | null>(null);
-  const setQueryValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const setQueryFromEvent = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
   };
 
   useEffect(() => {
-    console.log(query.length);
-    if (findCache(query)) setReco(findCache(query).data);
-    else if (query.length > 0 && !testWord.test(query)) {
+    if (findCache(query)) {
+      if (getTimeout) clearTimeout(getTimeout);
+      setReco(findCache(query).data);
+    } else if (query.length > 0 && !testWord.test(query)) {
       if (getTimeout) clearTimeout(getTimeout);
       getTimeout = setTimeout(() => {
         getSearchReco(query)
@@ -67,7 +68,8 @@ export default function useSearchList() {
 
   return {
     query,
-    setQueryValue,
+    setQuery,
+    setQueryFromEvent,
     reco,
     select,
     getKeyboardEvent,

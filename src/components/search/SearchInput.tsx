@@ -10,7 +10,7 @@ interface SearchInputProps {
 }
 
 export default function SearchInput({ makeListVisible, makeListHidden }: SearchInputProps) {
-  const { searchInputRef, query, setQueryValue } = useContext(SearchContext);
+  const { searchInputRef, query, setQueryFromEvent } = useContext(SearchContext);
 
   const searchHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -26,7 +26,7 @@ export default function SearchInput({ makeListVisible, makeListHidden }: SearchI
         onBlur={makeListHidden}
         ref={searchInputRef}
         value={query}
-        onChange={setQueryValue}
+        onChange={setQueryFromEvent}
         placeholder="질환명을 입력해 주세요."
       ></Input>
       <Button>

@@ -1,9 +1,10 @@
-import React, { createContext, useMemo, useState } from 'react';
+import React, { useRef } from 'react';
 import useSearchList from '../hook/useSearchList';
 
 const SearchContext = React.createContext<SearchContextType>({
   query: '',
-  setQueryValue: (e: React.ChangeEvent<HTMLInputElement>) => {},
+  setQuery: (query: string) => {},
+  setQueryFromEvent: (e: React.ChangeEvent<HTMLInputElement>) => {},
   reco: [],
   select: -1,
   getKeyboardEvent: (e: React.KeyboardEvent<HTMLDivElement>, reco: sickType[]) => {},
@@ -14,7 +15,8 @@ const SearchContext = React.createContext<SearchContextType>({
 function SearchProvider({ children }: { children: React.ReactElement }) {
   const {
     query,
-    setQueryValue,
+    setQuery,
+    setQueryFromEvent,
     reco,
     select,
     getKeyboardEvent,
@@ -26,7 +28,8 @@ function SearchProvider({ children }: { children: React.ReactElement }) {
     <SearchContext.Provider
       value={{
         query,
-        setQueryValue,
+        setQuery,
+        setQueryFromEvent,
         reco,
         select,
         getKeyboardEvent,

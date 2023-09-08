@@ -11,7 +11,8 @@ interface searchObjType {
 
 interface SearchContextType {
   query: string;
-  setQueryValue: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  setQuery: (query: string) => void;
+  setQueryFromEvent: (e: React.ChangeEvent<HTMLInputElement>) => void;
   reco: sickType[];
   select: number;
   getKeyboardEvent: (e: React.KeyboardEvent<HTMLDivElement>, reco: sickType[]) => void;

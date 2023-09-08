@@ -8,10 +8,15 @@ interface RecoItemProps {
 }
 
 export default function SearchRecoItem({ sickNm, idx }: RecoItemProps) {
-  const { setSelectByMouseOver, select } = useContext(SearchContext);
+  const { setSelectByMouseOver, select, setQuery } = useContext(SearchContext);
 
   return (
-    <SearchRecoItemStyle $select={select} $idx={idx} onMouseOver={() => setSelectByMouseOver(idx)}>
+    <SearchRecoItemStyle
+      $select={select}
+      $idx={idx}
+      onMouseOver={() => setSelectByMouseOver(idx)}
+      onClick={() => setQuery(sickNm)}
+    >
       {sickNm}
     </SearchRecoItemStyle>
   );

@@ -7,7 +7,7 @@ export default function useListVisible() {
   };
 
   const makeListHidden = () => {
-    setIsFocus(false);
+    setTimeout(() => setIsFocus(false), 100);
   };
 
   return { isFocus, makeListVisible, makeListHidden };
