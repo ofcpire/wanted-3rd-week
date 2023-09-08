@@ -45,6 +45,8 @@ src
  ┃ ┃ ┣ SearchInput.tsx
  ┃ ┃ ┣ SearchReco.tsx
  ┃ ┃ ┗ SearchRecoItem.tsx
+ ┣ context
+ ┃ ┗ SearchContext.tsx
  ┣ hook
  ┃ ┣ useListVisible.ts
  ┃ ┗ useSearchList.ts
@@ -74,6 +76,11 @@ src
     - `api` : API를 호출하는 axios 인스턴스 및 함수 폴더입니다.
     - `utils` : 기타 개발 중 사용되는 함수 폴더입니다.
     	- `cache.ts` : api 호출 결과를 localStorage에 캐싱하는 함수들입니다. 
+  - `context` : context와 provider 컴포넌트를 정리하는 폴더입니다.
+    - `SearchContext.tsx` : useSearchList 훅을 편하게 사용하기 위한 context와 컴포넌트입니다.
+  - `hook` : 리액트 커스텀훅 폴더입니다.
+    - `useSearchList.tsx` : 검색어에 따른 결과 호출과 캐싱, 키보드 및 마우스 조작을 지원하는 훅입니다.
+    - `useListVisible.tsx` : input의 focus 상태를 판별하는 훅입니다.
   - `pages` : Router에서 직접 호출되는 페이지 컴포넌트 폴더입니다.
   - `router` : react-router-dom에서 사용되는 라우터 객체와 레이아웃 컴포넌트입니다.
   - `styles` styled-components 컴포넌트를 정리하는 폴더입니다.
