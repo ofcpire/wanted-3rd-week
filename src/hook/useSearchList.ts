@@ -51,6 +51,10 @@ export default function useSearchList() {
     }
   };
 
+  const setSelectByMouseOver = (idx: number) => {
+    setSelect(idx);
+  };
+
   useEffect(() => {
     setSelect(-1);
   }, [reco]);
@@ -61,5 +65,13 @@ export default function useSearchList() {
       else searchInputRef.current.value = query;
   }, [select]);
 
-  return { query, setQueryValue, reco, select, getKeyboardEvent, searchInputRef };
+  return {
+    query,
+    setQueryValue,
+    reco,
+    select,
+    getKeyboardEvent,
+    searchInputRef,
+    setSelectByMouseOver,
+  };
 }
