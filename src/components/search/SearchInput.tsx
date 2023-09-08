@@ -5,8 +5,6 @@ import { Input, Button } from '../../styles/global';
 interface SearchInputProps {
   query: string;
   setQueryValue: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  select: number;
-  reco: sickType[];
   searchInputRef: React.RefObject<HTMLInputElement>;
   searchHandler: (e: React.FormEvent<HTMLFormElement>) => void;
   makeListVisible: () => void;
@@ -16,8 +14,6 @@ interface SearchInputProps {
 export default function SearchInput({
   query,
   setQueryValue,
-  select,
-  reco,
   searchInputRef,
   searchHandler,
   makeListVisible,

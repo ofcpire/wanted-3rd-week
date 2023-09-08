@@ -21,8 +21,6 @@ export default function Search() {
       <SearchInput
         query={query}
         setQueryValue={setQueryValue}
-        select={select}
-        reco={reco}
         searchInputRef={searchInputRef}
         searchHandler={searchHanlder}
         makeListVisible={makeListVisible}
