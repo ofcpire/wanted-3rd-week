@@ -1,32 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import SearchInput from './SearchInput';
 import SearchReco from './SearchReco';
-import useSearchList from '../../hook/useSearchList';
 import { SearchStyle } from '../../styles/searchStyle';
 import useListVisible from '../../hook/useListVisible';
+import { SearchContext } from '../../context/SearchContext';
 
 export default function Search() {
-  const { query, setQueryValue, reco, select, getKeyboardEvent, searchInputRef } = useSearchList();
   const { isFocus, makeListVisible, makeListHidden } = useListVisible();
-
-  const searchHanlder = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (searchInputRef.current) {
-      window.location.href = `https://clinicaltrialskorea.com/studies?conditions=${searchInputRef.current.value}`;
-    }
-  };
+  const { getKeyboardEvent, reco } = useContext(SearchContext);
 
   return (
     <SearchStyle onKeyDown={e => getKeyboardEvent(e, reco)}>
-      <SearchInput
-        query={query}
-        setQueryValue={setQueryValue}
-        searchInputRef={searchInputRef}
-        searchHandler={searchHanlder}
-        makeListVisible={makeListVisible}
-        makeListHidden={makeListHidden}
-      />
-      {isFocus && <SearchReco reco={reco} select={select} />}
+      <SearchInput makeListVisible={makeListVisible} makeListHidden={makeListHidden} />
+      {isFocus && <SearchReco />}
     </SearchStyle>
   );
 }

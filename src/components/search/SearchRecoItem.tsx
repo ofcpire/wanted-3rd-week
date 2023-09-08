@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { SearchRecoItemStyle } from '../../styles/searchStyle';
+import { SearchContext } from '../../context/SearchContext';
 
 interface RecoItemProps {
   sickNm: string;
-  select: number;
   idx: number;
 }
 
-export default function SearchRecoItem({ sickNm, select, idx }: RecoItemProps) {
+export default function SearchRecoItem({ sickNm, idx }: RecoItemProps) {
+  const { setSelectByMouseOver, select } = useContext(SearchContext);
+
   return (
-    <SearchRecoItemStyle $select={select} $idx={idx}>
+    <SearchRecoItemStyle $select={select} $idx={idx} onMouseOver={() => setSelectByMouseOver(idx)}>
       {sickNm}
     </SearchRecoItemStyle>
   );

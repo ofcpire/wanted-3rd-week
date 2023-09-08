@@ -1,23 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { SearchRecoListStyle } from '../../styles/searchStyle';
 import SearchRecoItem from './SearchRecoItem';
+import { SearchContext } from '../../context/SearchContext';
 
-interface SearchRecoProps {
-  reco: sickType[];
-  select: number;
-}
+export default function SearchReco() {
+  const { reco } = useContext(SearchContext);
 
-export default function SearchReco({ reco, select }: SearchRecoProps) {
   return (
     <SearchRecoListStyle>
       <div className="list-header">추천 검색어</div>
       {reco.length > 0 ? (
         <div>
           {reco.map((obj, idx) => {
-            if (idx < 10)
-              return (
-                <SearchRecoItem key={obj.sickCd} select={select} sickNm={obj.sickNm} idx={idx} />
-              );
+            if (idx < 10) return <SearchRecoItem key={obj.sickCd} sickNm={obj.sickNm} idx={idx} />;
           })}
         </div>
       ) : (
