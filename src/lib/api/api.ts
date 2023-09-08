@@ -1,7 +1,7 @@
 import api from './axios';
 
 const getSearchReco = async (query?: string) => {
-  console.log('calling api');
+  console.info('calling api');
   try {
     const response = await api.get('sick', {
       params: {
